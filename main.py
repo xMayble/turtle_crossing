@@ -22,14 +22,15 @@ while game_is_on:
     cars.create_cars()
     cars.move_cars()
 
-    #Detect collision with car 
+    # Detect collision with car 
     for car in cars.all_cars:
         if car.distance(player) < 20:
             game_is_on = False
 
     # Detect successful crossing
-    if player.is_at_finish_line:
+    if player.is_at_finish_line():
         player.go_to_start()
+        cars.level_up()
 
 
 
